@@ -1,0 +1,79 @@
+body {
+    padding: 0;
+    display: block;
+}
+
+.hideme {
+    display: none;
+}
+
+#header {
+    height: 70px;
+    text-align: center;
+}
+
+#leftColumn {
+    width: 200px;
+    float: left;
+}
+
+#leftMenu, #loginBox, #registerBox {
+    padding-bottom: 20px;
+}
+
+#centerColumn {
+    width: 600px;
+    float: left;
+    padding-left: 90px;
+}
+
+#footer {
+    clear :both;
+}
+
+.menuCaption {
+    padding: 3px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.hiMenu a {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.lowMenu a {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.cartBox {
+    padding: 5px 0px;
+}
+
+.goodPosition {
+    float: left;
+    padding: 0px 30px 40px 0px;
+}
+
+#prodClear {
+    clear: both;
+}
+
+#cartTable {
+    border: 1px solid black;
+}
+
+#userBox {
+    margin-bottom: 20px;
+}
+
+#registerBoxHidden {
+    display: none;
+}
+
+#userProfTable {
+    border: 0;
+}
