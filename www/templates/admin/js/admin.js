@@ -94,3 +94,37 @@ function addProduct() {
        }
     });
 }
+
+/**
+ * Функция обновления данных о товаре
+ * 
+ * @param {type} itemId - идентификатор товара
+ * @returns {undefined}
+ */
+function updateProduct(itemId) {
+    var itemName=$('#itemName_'+itemId).val();
+    var itemPrice=$('#itemPrice_'+itemId).val();
+    var itemCatId=$('#itemCatId_'+itemId).val();
+    var itemDesc=$('#itemDesc_'+itemId).val();
+    var itemStatus=$('#itemStatus_'+itemId).attr('checked');    
+    
+    if(!itemStatus) {
+        itemStatus=1;
+    } else {
+        itemStatus=0;
+    }
+    
+    var postData={itemId: itemId, itemName: itemName, itemPrice: itemPrice,
+                    itemCatId: itemCatId, itemDesc: itemDesc, itemStatus: itemStatus};
+                
+    $.ajax({
+        type: 'POST',
+        async: false,
+        url: "/admin/updateproduct/",
+        data: postData,
+        dataType: 'json',
+        success: function(data) {
+            alert(data['message']);
+        }
+    });
+}
