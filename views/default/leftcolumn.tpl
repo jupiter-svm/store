@@ -2,7 +2,7 @@
     
 <div id="leftColumn">
     <div id="leftMenu">
-        <div class="menuCaption"><a href="/">На главную</a></div>
+        <div class="menuCaption"><a href="/">На главную</a></div><br />
 
         {foreach $rsCategories as $item}
             <span class="hiMenu"><a href="/category/{$item['id']}/">{$item['name']}</a></span><br />

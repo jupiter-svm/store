@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-07-23 17:33:31
+<?php /* Smarty version Smarty-3.1.19, created on 2014-07-28 14:05:48
          compiled from "..\views\default\leftcolumn.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1798353b6537f81ec77-13432900%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '58a83437c8008d6a10109679cb480929a7a54ec0' => 
     array (
       0 => '..\\views\\default\\leftcolumn.tpl',
-      1 => 1406122410,
+      1 => 1406541947,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     
 <div id="leftColumn">
     <div id="leftMenu">
-        <div class="menuCaption"><a href="/">На главную</a></div>
+        <div class="menuCaption"><a href="/">На главную</a></div><br />
 
         <?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['rsCategories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

@@ -12,14 +12,15 @@ include_once '../library/mainFunctions.php';     //Подключение осн
 
 $controllerName=isset($_GET['controller']) ? ucfirst($_GET['controller']) : 'Index';    
 
-$actionName=isset($_GET['action']) ? $_GET['action'] : 'index';   
+$actionName=isset($_GET['action']) ? $_GET['action'] : 'index';  
 
 //Проверка авторизации пользователя
 if(isset($_SESSION['user'])) {
-    $smarty->assign('arUser', $_SESSION['user']);
+    $config->assign('arUser', $_SESSION['user']);
 }
 
 //Инициализируем переменную шаблонизатора количества элементов в корзине
-$smarty->assign('cartCntItems', count($_SESSION['cart']));
+$config->assign('cartCntItems', count($_SESSION['cart']));
 
-loadPage($smarty, $controllerName, $actionName);
+//Загружаем страницу сайта
+$MFunctions->loadPage($config, $controllerName, $actionName);

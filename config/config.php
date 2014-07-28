@@ -1,30 +1,49 @@
 <?php
-    define('PathPrefix', '../controllers/');
-    define('PathPostfix', 'Controller.php');
+//Подключаю класс отладчика
+include_once 'debug.php';
+
+class Config extends Debug {  
+    //TODO
+    //Переделать под private методы с функциями-геттерами
     
-    //Используемые шаблоны
-    $template='default';
-    $templateAdmin='admin';
+    public $dblocation='127.0.0.1';
+    public $dbname='shop';
+    public $dbuser='root';
+    public $dbpasswd='';
+   
+    public $PathPrefix= '../controllers/';
+    public $PathPostfix='Controller.php';   
     
     //Пути к файлам шаблонов {*.tpl}
-    define('TemplatePrefix', "../views/{$template}/");
-    define('TemplateAdminPrefix', "../views/{$templateAdmin}/");
-    define('TemplatePostfix', '.tpl');
+    public $TemplatePrefix;
+    public $TemplateAdminPrefix;
+    public $TemplatePostfix='.tpl';
     
     //Пути к файлам шаблонов в вебпространстве
-    define('TemplateWebPath', "/templates/{$template}/");
-    define('TemplateAdminWebPath', "/templates/{$templateAdmin}/");
-    
-    //< Инициализация шаблонизатора Smarty
-    require('../library/Smarty/libs/Smarty.class.php');   
-    
-    $smarty=new Smarty();
-    
-    $smarty->setTemplateDir(TemplatePrefix);
-    $smarty->setCompileDir('../tmp/smarty/templates_c');
-    $smarty->setCacheDir('../tmp/smarty/cache');
-    $smarty->setConfigDir('../library/Smarty/libs');
-    
-    $smarty->assign('templateWebPath', TemplateWebPath);
-    
+    public $TemplateWebPath;
+    public $TemplateAdminWebPath;       
     //>
+    
+    
+    function __construct($template, $templateAdmin) {  
+        parent::__construct();
+        
+        $this->TemplatePrefix="../views/{$template}";
+        $this->TemplateAdminPrefix="../views/{$templateAdmin}/";
+        
+        $this->TemplateWebPath="/templates/{$template}/";
+        $this->TemplateAdminWebPath="/templates/{$templateAdmin}/";     
+        
+        //Здесь конфигурирую Smarty, чей класс наследует класс Debug
+        $this->setTemplateDir($this->TemplatePrefix);
+        $this->setCompileDir('../tmp/smarty/templates_c');
+        $this->setCacheDir('../tmp/smarty/cache');
+        $this->setConfigDir('../library/Smarty/libs');
+
+        $this->assign('templateWebPath', $this->TemplateWebPath);        
+    }    
+}
+
+// Экземпляр класса конфигурации. Указываем папки для шаблонов и
+// и пути к файлам шаблонов в вебпространстве
+$config=new Config('default', 'admin');

@@ -1,21 +1,45 @@
 <?php
 
-    $dblocation='127.0.0.1';
-    $dbname='shop';
-    $dbuser='root';
-    $dbpasswd='';
+include_once 'config.php';
+
+/**
+ * Класс подключения к базе данных
+ */
+class Db extends Config {  
     
-    $db=  mysqli_connect($dblocation, $dbuser, $dbpasswd);
+    private $connection;
     
-    if(!$db) {
-        echo 'Ошибка доступа к MySQL';
-        exit();
+    //
+    function  __construct() {   
+        $this->open_connection();
+    }
+        
+    private function open_connection() {
+        $this->connection=mysqli_connect($this->dblocation, $this->dbuser, $this->dbpasswd);
+    
+        if(!$this->connection) {
+            echo 'Ошибка доступа к MySQL';
+            exit();
+        } else {
+            $db_select=mysqli_select_db($this->connection, $this->dbname);
+            
+            if(!db_select) {
+                echo 'Не удалось выбрать БД';
+                exit();
+            }
+        }
+
+        mysqli_set_charset($this->connection, 'UTF8') or die('Не удалось установить кодовую страницу UTF-8');        
     }
     
-    mysqli_set_charset($db, 'utf8');
+    //Получение дескриптора подключения к БД
+    function getConnection() {
+        return $this->connection;
+    }
     
-    if(!mysqli_select_db($db, $dbname)) {
-        echo 'Ошибка доступа к БД '.$dbname;
-        exit();
-    }  
-    
+    public function sql($query) {
+        $result=mysqli_query($this->connection, $query);
+        
+        return $result;
+    }
+}    
