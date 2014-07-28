@@ -128,3 +128,74 @@ function updateProduct(itemId) {
         }
     });
 }
+
+/**
+ * Функция отображения товаров заказа
+ * 
+ * @param {type} Id - идентификатор заказа
+ * @returns {undefined}
+ */
+function showProducts(id) {
+    var objName="#purchasesForOrderId_"+id; 
+    
+    if($(objName).css('display')!='table-row') {
+        $(objName).show();
+    } else {
+        $(objName).hide();
+    }
+}
+
+/**
+ * Функция обновления статуса заказа
+ * 
+ * @param {type} itemId - идентификатор заказа
+ * @returns {undefined}
+ */
+function updateOrderStatus(itemId) {
+     var status=$('#itemStatus_'+itemId).attr('checked');
+     
+     if(!status) {
+         status=0;
+     } else {
+         status=1;
+     }
+     
+     var postData={itemId: itemId, status: status};
+     
+     $.ajax({
+         type: 'POST',
+         async: false,
+         url: "/admin/setorderstatus/",
+         data: postData,
+         dataType: 'json',
+         success: function(data) {
+             if(!data['success']) {
+                 alert(data['message']);
+             }
+         }
+     });
+}
+
+/**
+ * Функция обновления даты заказа
+ * 
+ * @param {type} itemId - идентификатор заказа
+ * @returns {undefined}
+ */
+function updateDatePayment(itemId) {
+    var datePayment=$('#datePayment_'+itemId).val();
+    var postData={itemId: itemId, datePayment: datePayment};
+    
+    $.ajax({
+       type: 'POST',
+       async: false,
+       url: "/admin/setorderdatepayment/",
+       data: postData,
+       dataType: 'json',
+       success: function(data) {
+           if(!data['success']) {
+               alert(data['message']);
+           }
+       }
+    });
+}
