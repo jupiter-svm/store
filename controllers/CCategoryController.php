@@ -23,16 +23,16 @@ class CCategoryController {
 
         $rsChildCats=null;
 
+        //Получаем название категории
         $rsCategory=$this->MCategoriesModel->getCatById($catId);    
 
-        //Если главная категория, то показываем дочерние категории,
-        //иначе показываем товар    
-        if($rsCategory['parent_id']==0) {       
-            $rsChildCats=$this->MCategoriesModel->getChildrenForCat($catId);        
-        } else {
-            $rsProducts=$this->MProductsModel->getProductsByCat($catId);
-        }
-
+        //Получаем дочерние категории      
+        $rsChildCats=$this->MCategoriesModel->getChildrenForCat($catId);        
+        
+        //Получаем товар из категории
+        $rsProducts=$this->MProductsModel->getProductsByCat($catId);
+       
+        //Получить главные категории с привязками дочерних 
         $rsCategories=$this->MCategoriesModel->getAllMainCatsWithChildren();
 
         $config->assign('pageTitle', 'Товары категории '.$rsCategory['name']);

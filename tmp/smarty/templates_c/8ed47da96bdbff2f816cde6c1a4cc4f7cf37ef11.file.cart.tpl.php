@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-07-14 17:23:34
+<?php /* Smarty version Smarty-3.1.19, created on 2014-07-29 10:11:28
          compiled from "..\views\default\cart.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1489853bd3ba8c6d2a0-48041612%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8ed47da96bdbff2f816cde6c1a4cc4f7cf37ef11' => 
     array (
       0 => '..\\views\\default\\cart.tpl',
-      1 => 1405344212,
+      1 => 1406614287,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_53bd3ba8cbba03_34343483')) {function content_53bd3ba8cbba03_34343483($_smarty_tpl) {?>
-<h1>Корзина</h1>
+<h2>Корзина</h2>
+<br />
+<br />
 
 <?php if (!$_smarty_tpl->tpl_vars['rsProducts']->value) {?>
     В корзине пусто

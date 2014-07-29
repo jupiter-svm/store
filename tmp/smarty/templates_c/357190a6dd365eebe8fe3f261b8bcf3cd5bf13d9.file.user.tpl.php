@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-07-18 10:23:57
+<?php /* Smarty version Smarty-3.1.19, created on 2014-07-29 09:44:46
          compiled from "..\views\default\user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:161153bf9a96cb3f99-90071636%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '357190a6dd365eebe8fe3f261b8bcf3cd5bf13d9' => 
     array (
       0 => '..\\views\\default\\user.tpl',
-      1 => 1405664635,
+      1 => 1406612685,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'arUser' => 0,
+    'isAdmin' => 0,
     'rsUserOrders' => 0,
     'item' => 0,
     'itemChild' => 0,
@@ -28,13 +29,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_53bf9a96d12686_03633016')) {function content_53bf9a96d12686_03633016($_smarty_tpl) {?>
 
-<h1>Ваши регистрационные данные</h1>
+<h3>Ваши регистрационные данные</h3>
+<br />
 <form>
-    <table id="userProfTable">
+    <table id="userProfTable" cellpadding="2" cellspacing="0">
         <tr>
             <td>Логин (email)</td>
-            <td><?php echo $_smarty_tpl->tpl_vars['arUser']->value['email'];?>
-</td>
+            <td>
+                <?php echo $_smarty_tpl->tpl_vars['arUser']->value['email'];?>
+
+                <?php if ($_smarty_tpl->tpl_vars['isAdmin']->value=='true') {?>
+                    (Администратор)
+                <?php }?>
+            </td>
         </tr>
         <tr>
             <td>Имя</td>

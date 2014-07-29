@@ -43,9 +43,8 @@ class MCategoriesModel extends Db {
     }
 
     /**
-     * Получить данные по id
+     * Получить данные категории по id
      */
-
     function getCatById($catId) {        
 
         $catId=intval($catId);

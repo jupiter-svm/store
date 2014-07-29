@@ -19,6 +19,10 @@ if(isset($_SESSION['user'])) {
     $config->assign('arUser', $_SESSION['user']);
 }
 
+if($_SESSION['user']['role']==1) {
+    $config->assign('isAdmin', 'true');
+}
+
 //Инициализируем переменную шаблонизатора количества элементов в корзине
 $config->assign('cartCntItems', count($_SESSION['cart']));
 

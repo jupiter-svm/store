@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-07-25 10:52:07
+<?php /* Smarty version Smarty-3.1.19, created on 2014-07-29 12:21:23
          compiled from "..\views\admin\adminLeftcolumn.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1208653c8d7525a2907-52171993%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '67a57c50effafc500015548678ce8e06613fefa3' => 
     array (
       0 => '..\\views\\admin\\adminLeftcolumn.tpl',
-      1 => 1406271125,
+      1 => 1406622082,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <div id="leftColumn">
     <div id="leftMenu">
-        <div class="menuCaption">Меню:</div><br />
+        <div class="menuCaption"><i class="icon-home"></i>&nbsp;<a href="/admin/">Меню</a></div><br />
         <a href="/admin/">Главная</a><br />
         <a href="/admin/category/">Категории</a><br />
         <a href="/admin/products/">Товар</a><br />
@@ -36,15 +36,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     
     <?php if (isset($_smarty_tpl->tpl_vars['arUser']->value)) {?>
         <div id="userBox">
-            <a href="/user/" id="userLink"><?php echo $_smarty_tpl->tpl_vars['arUser']->value['displayName'];?>
+            <i class="icon-user"></i>&nbsp;<a href="/user/" id="userLink"><?php echo $_smarty_tpl->tpl_vars['arUser']->value['displayName'];?>
 </a><br />
-            <a href="/user/logout/" onclick="logout();">Выход</a>
+            <i class="icon-off"></i>&nbsp;<a href="/user/logout/" onclick="logout();">Выход</a>
         </div>
     <?php } else { ?>
     
         <div id="userBox" class="hideme">
-            <a href="#" id="userLink"></a><br />
-            <a href="/user/logout/" onclick="logout();">Выход</a>
+            <i class="icon-user"></i>&nbsp;<a href="#" id="userLink"></a><br />
+            <i class="icon-off"></i>&nbsp;<a href="/user/logout/" onclick="logout();">Выход</a>
         </div>    
     <?php }?>
     <br />

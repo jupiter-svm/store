@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2014-07-28 14:05:48
+<?php /* Smarty version Smarty-3.1.19, created on 2014-07-29 12:19:13
          compiled from "..\views\default\leftcolumn.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1798353b6537f81ec77-13432900%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '58a83437c8008d6a10109679cb480929a7a54ec0' => 
     array (
       0 => '..\\views\\default\\leftcolumn.tpl',
-      1 => 1406541947,
+      1 => 1406621948,
       2 => 'file',
     ),
   ),
@@ -25,6 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'arUser' => 0,
     'hideLoginBox' => 0,
     'cartCntItems' => 0,
+    'isAdmin' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -32,8 +33,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     
 <div id="leftColumn">
     <div id="leftMenu">
-        <div class="menuCaption"><a href="/">На главную</a></div><br />
-
+        <div class="menuCaption"><i class="icon-home"></i>&nbsp;<a href="/">На главную</a></div><br />
+        
+        <!-- Переписать под ul-список -->
         <?php  $_smarty_tpl->tpl_vars['item'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['item']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['rsCategories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['item']->key => $_smarty_tpl->tpl_vars['item']->value) {
@@ -60,47 +62,53 @@ $_smarty_tpl->tpl_vars['itemChild']->_loop = true;
     
     <?php if (isset($_smarty_tpl->tpl_vars['arUser']->value)) {?>
         <div id="userBox">
-            <a href="/user/" id="userLink"><?php echo $_smarty_tpl->tpl_vars['arUser']->value['displayName'];?>
+            <i class="icon-user"></i>&nbsp;<a href="/user/" id="userLink"><?php echo $_smarty_tpl->tpl_vars['arUser']->value['displayName'];?>
 </a><br />
-            <a href="/user/logout/" onclick="logout();">Выход</a>
+            <i class="icon-off"></i>&nbsp;<a href="/user/logout/" onclick="logout();">Выход</a>
         </div>
     <?php } else { ?>
     
         <div id="userBox" class="hideme">
-            <a href="#" id="userLink"></a><br />
-            <a href="/user/logout/" onclick="logout();">Выход</a>
+            <i class="icon-user"></i>&nbsp;<a href="#" id="userLink"></a><br />
+            <i class="icon-off"></i>&nbsp;<a href="/user/logout/" onclick="logout();">Выход</a>
         </div>    
         
         <?php if (!isset($_smarty_tpl->tpl_vars['hideLoginBox']->value)) {?>
-            <div id="loginBox">
+            <div id="loginBox" class="well">
                 <div class="menuCaption">Авторизация</div>
-                <input type="text" name="loginEmail" value="" id="loginEmail" /><br />
-                <input type="password" name="loginPwd" value="" id="loginPwd" /><br />
-                <input type="button" value="Войти" onclick="login();" />
+                <input type="text" name="loginEmail" value="" id="loginEmail" placeholder="Логин" /><br />
+                <input type="password" name="loginPwd" value="" id="loginPwd" placeholder="Пароль" /><br />
+                <input type="button" class="btn btn-block btn-success" value="Войти" onclick="login();" />
             </div>
 
-            <div id="registerBox">
-                <div class="menuCaption showHidden" onclick="showRegisterBox();">Регистрация</div>
+            <div id="registerBox" class="well">
+                <div class="menuCaption showHidden" onclick="showRegisterBox();">Регистрация</div>                
                 <div id="registerBoxHidden">
                     E-mail:<br />
-                    <input type="text" id="email" name="email" value=""/><br />
+                    <input type="email" id="email" name="email" value="" required/><br />
                     Пароль:<br />
                     <input type="password" id="pwd1" name="pwd1" value="" /><br />
                     Повторить пароль:<br />
                     <input type="password" id="pwd2" name="pwd2" value="" /><br />
-                    <input type="button" onclick="registerNewUser();" value="Зарегистрироваться" />
+                    <input type="button" class="btn btn-block btn-success" onclick="registerNewUser();" value="Зарегистрироваться" />
                 </div>
             </div>
         <?php }?>
     <?php }?>
     
-    <div class="menuCaption">Корзина</div>
-    <a href="/cart/" title="Перейти в корзину">В корзине</a>
-    <span id="cartCntItems">
-        <?php if ($_smarty_tpl->tpl_vars['cartCntItems']->value>0) {?> (<?php echo $_smarty_tpl->tpl_vars['cartCntItems']->value;?>
+    <div class="well">
+        <div class="menuCaption">Корзина</div>
+        <a href="/cart/" title="Перейти в корзину">В корзине</a>
+        <span id="cartCntItems">
+            <?php if ($_smarty_tpl->tpl_vars['cartCntItems']->value>0) {?> (<?php echo $_smarty_tpl->tpl_vars['cartCntItems']->value;?>
 ) <?php } else { ?> (0)<?php }?>
-    </span>
+        </span>
+    </div>
     <br />
     <br />
-    <div class="menuCaption"><a href="/admin/">Админка</a></div>
+    <div class="menuCaption" id="admLink">
+        <?php if ($_smarty_tpl->tpl_vars['isAdmin']->value=='true') {?>
+            <a href="/admin/">Админцентр</a>
+        <?php }?>
+    </div>
 </div><?php }} ?>

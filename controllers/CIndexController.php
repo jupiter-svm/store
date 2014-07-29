@@ -18,7 +18,7 @@ class CIndexController {
         
         $config->assign('pageTitle', 'Главная страница сайта');
         $config->assign('rsCategories', $rsCategories);
-        $config->assign('rsProducts', $rsProducts);        
+        $config->assign('rsProducts', $rsProducts);     
         
         MFunctions::loadTemplate($config, 'header');
         MFunctions::loadTemplate($config, 'index');
