@@ -1,11 +1,17 @@
 {* Страница пользователя *}
 
-<h1>Ваши регистрационные данные</h1>
+<h3>Ваши регистрационные данные</h3>
+<br />
 <form>
-    <table id="userProfTable">
+    <table id="userProfTable" cellpadding="2" cellspacing="0">
         <tr>
             <td>Логин (email)</td>
-            <td>{$arUser['email']}</td>
+            <td>
+                {$arUser['email']}
+                {if $isAdmin=='true'}
+                    (Администратор)
+                {/if}
+            </td>
         </tr>
         <tr>
             <td>Имя</td>

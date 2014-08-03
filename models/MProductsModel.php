@@ -35,7 +35,7 @@ class MProductsModel extends Db {
     function getProductsByCat($itemId) {
         $itemId=intval($itemId);
 
-        $sql="SELECT * FROM products WHERE category_id='{$itemId}'";
+        $sql="SELECT * FROM products WHERE category_id='{$itemId}' AND status=1";
 
         //debug($sql);
 

@@ -8,16 +8,16 @@ body {
 }
 
 #header {
-    height: 70px;
+    height: 100px;
     text-align: center;
 }
 
 #leftColumn {
-    width: 200px;
+    width: 220px;
     float: left;
 }
 
-#leftMenu, #loginBox, #registerBox {
+#leftMenu, #loginBox, #registerBox {    
     padding-bottom: 20px;
 }
 
@@ -28,6 +28,7 @@ body {
 }
 
 #footer {
+    text-align: center;
     clear :both;
 }
 
@@ -35,11 +36,12 @@ body {
     padding: 3px;
     font-weight: bold;
     text-decoration: underline;
-    color: blue;
+    color: #0088cc;
     cursor: pointer;
 }
 
 .hiMenu a {
+    font-weight: bold;
     margin-left: 10px;
     text-decoration: none;
 }
@@ -75,9 +77,22 @@ body {
 }
 
 #registerBoxHidden {
+    margin-top: 20px;
     display: none;
 }
 
 #userProfTable {
     border: 0;
+}
+
+#loginEmail, #loginPwd, #email, #pwd1, #pwd2 {
+    width: 165px;
+}
+
+h3 a {
+    text-decoration: underline;
+}
+
+.productPrice, .productDescription {
+    font-weight: bold;
 }

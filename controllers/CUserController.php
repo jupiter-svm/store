@@ -109,6 +109,7 @@ class CUserController {
 
             $resData=$_SESSION['user'];
             $resData['success']=1;
+            $resData['role']=$userData['role'];
         } else {
             $resData['success']=0;
             $resData['message']='Неверный логин и пароль';

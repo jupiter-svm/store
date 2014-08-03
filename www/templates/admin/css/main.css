@@ -17,7 +17,7 @@ body {
     float: left;
 }
 
-#leftMenu, #loginBox, #registerBox {
+#leftMenu {
     padding-bottom: 20px;
 }
 
@@ -27,24 +27,44 @@ body {
 }
 
 #footer {
+    text-align: center;
     clear: both;
 }
 
 .menuCaption {
+    text-decoration: underline;
     padding: 3px;
     font-weight: bold;
-}
-
-.cartBox {
-    padding: 5px 0px 5px 0px;
-}
-
-#registerBoxHidden {
-    display: none;
 }
 
 .showHidden {
     text-decoration: underline;
     color: blue;
     cursor: pointer;
+}
+
+.productsCaption {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0088cc;
+}
+
+.table textarea {
+    height: 30px;
+    width: 220px;
+}
+
+table th {
+    font-size: 14px;
+}
+
+table input[type=text], #newCategory {
+    height: 30px;
+    line-height:30px;
+    font-size: 12px;
+}
+
+input[type=button] {
+    padding-left: 4px;
+    padding-right: 4px;
 }

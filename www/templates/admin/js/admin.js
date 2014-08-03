@@ -1,15 +1,16 @@
 /**
  * Получение данных с форм
  * 
+ * @obj_form - экземпляр формы
  * @returns {undefined}
  */
 function getData(obj_form) {
     var hData={};
     
     $('input, textarea, select', obj_form).each(function() {
-        if(this.name && this.name!='') {
+        if(this.name && this.name!=='') {
             hData[this.name]=this.value;
-            console.log('hData['+this.name+']='+hData[this.name]);
+            //console.log('hData['+this.name+']='+hData[this.name]);
         }
     });
     
@@ -21,7 +22,7 @@ function getData(obj_form) {
  * 
  * @returns {undefined}
  */
-function newCategory() {
+function addnewCategory() {
     var postData=getData('#blockNewCategory');
     
     $.ajax({
@@ -33,7 +34,7 @@ function newCategory() {
        success: function(data) {
            if(data['success']) {
                alert(data['message']);
-               $('$newCategoryName').val('');
+               $('newCategoryName').val('');
            }
        }
     });

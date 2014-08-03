@@ -36,6 +36,7 @@ class CAdminController {
     
     /**
      * Отображение главной страницы
+     * $config - передаю экземпляр
      */
     function indexAction($config) {
         $rsCategories=$this->MCategoriesModel->getAllMainCategories();    
